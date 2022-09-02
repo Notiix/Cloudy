@@ -1,0 +1,111 @@
+{
+  "name": "levelOLD",
+  "permissions": "ADMINISTRATOR",
+  "permissions2": "ADMINISTRATOR",
+  "restriction": "1",
+  "_id": "HExxS",
+  "actions": [
+    {
+      "user": "1",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "user.Username",
+      "name": "Store User Info"
+    },
+    {
+      "user": "1",
+      "varName": "",
+      "info": "9",
+      "storage": "1",
+      "varName2": "user.Discriminator",
+      "name": "Store User Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "level",
+      "defaultVal": "'0'",
+      "storage": "1",
+      "varName2": "user.Level",
+      "name": "Store Member Data"
+    },
+    {
+      "url": "resources/card.png",
+      "storage": "1",
+      "varName": "card",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "30",
+      "y": "20",
+      "font": "fonts/DejaVuBold.fnt",
+      "width": "",
+      "text": "${tempVars(\"user.Username\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "30",
+      "y": "190",
+      "font": "fonts/DejaVuBook-78px.fnt",
+      "width": "",
+      "text": "#${tempVars(\"user.Discriminator\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "30",
+      "y": "460",
+      "font": "fonts/DejaVuBold-235px.fnt",
+      "width": "",
+      "text": "Level",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "801",
+      "y": "460",
+      "font": "fonts/DejaVuBook-235px.fnt",
+      "width": "",
+      "text": "${tempVars(\"user.Level\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "> **Viewing level card  • ** **[** ${tempVars(\"user.Username\")}#${tempVars(\"user.Discriminator\")} **]**",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "channel": "0",
+      "varName2": "",
+      "message": " ",
+      "storage2": "0",
+      "varName3": "",
+      "name": "Send Image"
+    }
+  ],
+  "comType": "4",
+  "description": "View your server level card"
+}
