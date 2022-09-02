@@ -1,0 +1,150 @@
+{
+  "name": "BadgeOLD",
+  "permissions": "ADMINISTRATOR",
+  "permissions2": "ADMINISTRATOR",
+  "restriction": "1",
+  "_id": "cKiYx",
+  "actions": [
+    {
+      "member": "5",
+      "varName": "User",
+      "dataName": "badges",
+      "comparison": "5",
+      "value": "slashParams(\"Badge\")",
+      "branch": {
+        "iftrue": "2",
+        "iffalse": "0",
+        "iftrueVal": "5"
+      },
+      "name": "Check Member Data"
+    },
+    {
+      "member": "5",
+      "varName": "User",
+      "dataName": "badges",
+      "changeType": "1",
+      "value": "slashParams(\"Badge\")",
+      "name": "Control Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "",
+          "url": "",
+          "color": "2F3136",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "",
+          "fields": [],
+          "author": "Successfully updated your Server Profile!",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "",
+          "url": "",
+          "color": "2F3136",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "",
+          "fields": [],
+          "author": "User already owns this badge!",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "parameters": [
+    {
+      "name": "User",
+      "description": "Who will receive the badge?",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    },
+    {
+      "name": "Badge",
+      "description": "Choose a badge to give to the user",
+      "type": "STRING",
+      "required": true,
+      "choices": [
+        {
+          "name": "booster",
+          "value": "<:booster:938526612666871818> "
+        },
+        {
+          "name": "partner",
+          "value": "<:partner:938872518201204826> "
+        },
+        {
+          "name": "gift",
+          "value": "<:gift:938526612390031381> "
+        },
+        {
+          "name": "staff",
+          "value": "<:staff:938526612402610208> "
+        },
+        {
+          "name": "moderator",
+          "value": "<:moderator:938526612687847504> "
+        },
+        {
+          "name": "developer",
+          "value": "<:developer:938526612570406942> "
+        },
+        {
+          "name": "verified",
+          "value": "<:verified:938865081406586960> "
+        }
+      ]
+    }
+  ],
+  "description": "Add a badge to someone's Server Profile"
+}
