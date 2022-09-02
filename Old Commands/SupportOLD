@@ -1,0 +1,203 @@
+{
+  "name": "SupportOLD",
+  "permissions": "ADMINISTRATOR",
+  "permissions2": "ADMINISTRATOR",
+  "restriction": "1",
+  "_id": "mjXQc",
+  "actions": [
+    {
+      "url": "resources/StaffSupport.png",
+      "storage": "1",
+      "varName": "StaffSupport",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "StaffSupport",
+      "channel": "0",
+      "varName2": "",
+      "message": " ",
+      "storage2": "0",
+      "varName3": "",
+      "name": "Send Image"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [
+        {
+          "name": "・ Create Ticket",
+          "type": "SECONDARY",
+          "id": "msg-button-3e42e5e",
+          "row": "",
+          "url": "",
+          "emoji": "🎫",
+          "mode": "PERSISTENT",
+          "time": "",
+          "actions": [
+            {
+              "user": "1",
+              "varName": "",
+              "info": "2",
+              "storage": "1",
+              "varName2": "memberUsername",
+              "name": "Store User Info"
+            },
+            {
+              "channelName": "🎫・${tempVars(\"memberUsername\")}",
+              "topic": "Support Ticket",
+              "position": "",
+              "storage": "2",
+              "varName": "memberTicket",
+              "categoryID": "945740304575782973",
+              "reason": "Ticket Created",
+              "name": "Create Text Channel"
+            },
+            {
+              "channel": "4",
+              "varName": "memberTicket",
+              "info": "0",
+              "storage": "1",
+              "varName2": "ticketObject",
+              "name": "Store Channel Info"
+            },
+            {
+              "channel": "6",
+              "varName": "memberTicket",
+              "message": "",
+              "buttons": [
+                {
+                  "name": "・ Close",
+                  "type": "DANGER",
+                  "id": "msg-button-7fc43c9",
+                  "row": "",
+                  "url": "",
+                  "emoji": "🗑️",
+                  "mode": "PERSISTENT",
+                  "time": "",
+                  "actions": [
+                    {
+                      "channel": "0",
+                      "varName": "",
+                      "message": "Closing Ticket...",
+                      "buttons": [],
+                      "selectMenus": [],
+                      "attachments": [],
+                      "embeds": [],
+                      "reply": true,
+                      "ephemeral": false,
+                      "tts": false,
+                      "overwrite": false,
+                      "dontSend": false,
+                      "editMessage": "0",
+                      "editMessageVarName": "",
+                      "storage": "0",
+                      "varName2": "",
+                      "name": "Send Message"
+                    },
+                    {
+                      "time": "2",
+                      "measurement": "1",
+                      "name": "Wait"
+                    },
+                    {
+                      "storage": "0",
+                      "varName": "",
+                      "reason": "",
+                      "name": "Delete Channel"
+                    }
+                  ]
+                }
+              ],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "",
+                  "url": "",
+                  "color": "#2F3136",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "Thank you for contacting Staff Support!\nStaff should be with you shortly.\nTo close this ticket at any time, click the button below.",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "",
+                  "footerIconUrl": ""
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            },
+            {
+              "channel": "6",
+              "varName": "memberTicket",
+              "message": "${member}\n<@&945779393953935480>",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "1",
+              "varName2": "ping",
+              "name": "Send Message"
+            },
+            {
+              "storage": "1",
+              "varName": "ping",
+              "reason": "",
+              "name": "Delete Message"
+            }
+          ]
+        }
+      ],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "",
+          "url": "",
+          "color": "#2f3136",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "Thank you for your interest in contacting Staff Support. Please be mindful of our staff team, and follow the guidelines below on creating a Support Ticket.\n\nWe highly suggest that anyone seeking support goes to the [Community Support](https://discord.com/channels/886082935688658944/945735079165034496) channel before creating a Support Ticket. If no one has responded to your question, or you still need support, please use the button below to create a ticket.",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4"
+}
