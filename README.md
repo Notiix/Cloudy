@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href=" "><img src="https://imgur.com/RbdRhJ6.png" alt="Markdownify" width="200"></a>
+  <a href="https://github.com/Notiix/Cloudy/blob/main/README.md"><img src="https://imgur.com/RbdRhJ6.png" alt="Markdownify" width="200"></a>
   <br>
   Cloudy
   <br>
