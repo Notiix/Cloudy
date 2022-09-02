@@ -1,0 +1,312 @@
+{
+  "name": "ProfileOLD",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "laGzp",
+  "actions": [
+    {
+      "comment": "<b> Checking Variable <b>",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "storage": "4",
+      "varName": "member",
+      "comparison": "4",
+      "value": "1",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "4",
+        "iffalseVal": "Target Member"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "comment": "<b> Target Member's Profile <b>",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "info": "21",
+      "storage": "1",
+      "varName2": "memberTag",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "info": "16",
+      "storage": "1",
+      "varName2": "memberAvatar",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "info": "22",
+      "storage": "1",
+      "varName2": "memberCreated",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "info": "24",
+      "storage": "1",
+      "varName2": "memberJoin",
+      "name": "Store Member Info"
+    },
+    {
+      "date": "${tempVars(\"memberJoin\")}",
+      "info": "2",
+      "storage": "1",
+      "varName": "joinedTimestamp",
+      "name": "Store Date Info"
+    },
+    {
+      "date": "${tempVars(\"memberCreated\")}",
+      "info": "2",
+      "storage": "1",
+      "varName": "createdTimestamp",
+      "name": "Store Date Info"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "dataName": "about",
+      "defaultVal": "\"\"",
+      "storage": "1",
+      "varName2": "memberAbout",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "dataName": "badges",
+      "defaultVal": "\"\"",
+      "storage": "1",
+      "varName2": "memberBadges",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "5",
+      "varName": "member",
+      "dataName": "banner",
+      "defaultVal": "\"\"",
+      "storage": "1",
+      "varName2": "memberBanner",
+      "name": "Store Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "${tempVars(\"memberTag\")}",
+          "url": "",
+          "color": "2F3136",
+          "timestamp": "false",
+          "imageUrl": "${tempVars(\"memberBanner\")}",
+          "thumbUrl": "${tempVars(\"memberAvatar\")}",
+          "description": "${tempVars(\"memberBadges\")}\nㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ",
+          "fields": [
+            {
+              "name": "ABOUT ME",
+              "value": "${tempVars(\"memberAbout\")}\nㅤ",
+              "inline": "false"
+            },
+            {
+              "name": "CREATED",
+              "value": "<t:${tempVars(\"createdTimestamp\")}:d>",
+              "inline": "true"
+            },
+            {
+              "name": "ㅤ",
+              "value": "ㅤ",
+              "inline": "true"
+            },
+            {
+              "name": "JOINED",
+              "value": "<t:${tempVars(\"joinedTimestamp\")}:d>",
+              "inline": "true"
+            }
+          ],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "profileMessage",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "comment": "<b> Command Author's Profile <b>",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "anchorName": "Target Member",
+      "name": "Action Anchor"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "21",
+      "storage": "1",
+      "varName2": "memberTag",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "16",
+      "storage": "1",
+      "varName2": "memberAvatar",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "22",
+      "storage": "1",
+      "varName2": "memberCreated",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "24",
+      "storage": "1",
+      "varName2": "memberJoin",
+      "name": "Store Member Info"
+    },
+    {
+      "date": "${tempVars(\"memberJoin\")}",
+      "info": "2",
+      "storage": "1",
+      "varName": "joinedTimestamp",
+      "name": "Store Date Info"
+    },
+    {
+      "date": "${tempVars(\"memberCreated\")}",
+      "info": "2",
+      "storage": "1",
+      "varName": "createdTimestamp",
+      "name": "Store Date Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "about",
+      "defaultVal": "\"\"",
+      "storage": "1",
+      "varName2": "memberAbout",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "badges",
+      "defaultVal": "\"\"",
+      "storage": "1",
+      "varName2": "memberBadges",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "banner",
+      "defaultVal": "\"\"",
+      "storage": "1",
+      "varName2": "memberBanner",
+      "name": "Store Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "> **Viewing Server Profile  •**  **[** ${tempVars(\"memberTag\")} **]**",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "${tempVars(\"memberTag\")}",
+          "url": "",
+          "color": "2F3136",
+          "timestamp": "false",
+          "imageUrl": "${tempVars(\"memberBanner\")}",
+          "thumbUrl": "${tempVars(\"memberAvatar\")}",
+          "description": "${tempVars(\"memberBadges\")}\nㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ",
+          "fields": [
+            {
+              "name": "ABOUT ME",
+              "value": "${tempVars(\"memberAbout\")}\nㅤ",
+              "inline": "false"
+            },
+            {
+              "name": "CREATED",
+              "value": "<t:${tempVars(\"createdTimestamp\")}:d>",
+              "inline": "true"
+            },
+            {
+              "name": "ㅤ",
+              "value": "ㅤ",
+              "inline": "true"
+            },
+            {
+              "name": "JOINED",
+              "value": "<t:${tempVars(\"joinedTimestamp\")}:d>",
+              "inline": "true"
+            }
+          ],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "profileMessage",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "4",
+  "description": "Shows your Server Profile",
+  "parameters": [
+    {
+      "name": "member",
+      "description": "Target member",
+      "type": "USER",
+      "required": false,
+      "choices": null
+    }
+  ]
+}
