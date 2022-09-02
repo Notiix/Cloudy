@@ -1,0 +1,146 @@
+{
+  "name": "levelsDEV",
+  "permissions": "ADMINISTRATOR",
+  "permissions2": "ADMINISTRATOR",
+  "restriction": "1",
+  "_id": "XBrxU",
+  "actions": [
+    {
+      "storage": "1",
+      "varName": "myLevel",
+      "changeType": "0",
+      "value": "93",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "myCalc",
+      "changeType": "0",
+      "value": "3750",
+      "name": "Control Variable"
+    },
+    {
+      "FirstNumber": "${tempVars(\"myLevel\")}",
+      "info": "0",
+      "SecondNumber": "1",
+      "storage": "1",
+      "varName": "myNextLevel",
+      "name": "Basic Math Operation"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "function abbrNum(number, decPlaces) {\n    var orig = number;\n    var dec = decPlaces;\n    // 2 decimal places => 100, 3 => 1000, etc\n    decPlaces = Math.pow(10, decPlaces);\n\n    // Enumerate number abbreviations\n    var abbrev = [\"k\", \"m\", \"b\", \"t\"];\n\n    // Go through the array backwards, so we do the largest first\n    for (var i = abbrev.length - 1; i >= 0; i--) {\n\n        // Convert array index to \"1000\", \"1000000\", etc\n        var size = Math.pow(10, (i + 1) * 3);\n\n        // If the number is bigger or equal do the abbreviation\n        if (size <= number) {\n            // Here, we multiply by decPlaces, round, and then divide by decPlaces.\n            // This gives us nice rounding to a particular decimal place.\n            var number = Math.round(number * decPlaces / size) / decPlaces;\n\n            // Handle special case where we round up to the next abbreviation\n            if((number == 1000) && (i < abbrev.length - 1)) {\n                number = 1;\n                i++;\n            }\n\n            // console.log(number);\n            // Add the letter for the abbreviation\n            number += abbrev[i];\n\n            // We are done... stop\n            break;\n        }\n    }\n\n    return number;\n}\n\nabbrNum(tempVars(\"myCalc\"), 1)",
+      "storage": "1",
+      "varName": "myShortCalc",
+      "name": "Run Script"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "storage": "1",
+      "varName2": "user.Avatar",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "url": "resources/level-up/card.png",
+      "storage": "1",
+      "varName": "level.Card",
+      "name": "Create Image"
+    },
+    {
+      "url": "resources/level-up/border.png",
+      "storage": "1",
+      "varName": "level.Border",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "user.Avatar",
+      "width": "181px",
+      "height": "181px",
+      "name": "Resize Image"
+    },
+    {
+      "storage": "1",
+      "varName": "level.Card",
+      "storage2": "1",
+      "varName2": "user.Avatar",
+      "x": "58",
+      "y": "59",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "level.Card",
+      "storage2": "1",
+      "varName2": "level.Border",
+      "x": "0",
+      "y": "0",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "level.Card",
+      "x": "497",
+      "y": "107",
+      "font": "fonts/DejaVuBold-75px-red.fnt",
+      "width": "",
+      "text": "${tempVars(\"myLevel\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "level.Card",
+      "x": "787",
+      "y": "91",
+      "font": "fonts/DejaVuCondensedBold-31px.fnt",
+      "width": "",
+      "text": "${tempVars(\"myNextLevel\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "level.Card",
+      "x": "787",
+      "y": "198",
+      "font": "fonts/DejaVuCondensedBold-31px.fnt",
+      "width": "",
+      "text": "${tempVars(\"myShortCalc\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "channel": "0",
+      "varName": "levelserver",
+      "message": "> **Leveled up! •** **[** ${tempVars(\"memberUsername\")}#${tempVars(\"memberDiscriminator\")} **]**",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "levelup.Message",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "level.Card",
+      "channel": "0",
+      "varName2": "",
+      "message": " ",
+      "storage2": "1",
+      "varName3": "levelup.Image",
+      "name": "Send Image"
+    }
+  ],
+  "comType": "4",
+  "description": "View Level Up Message"
+}
