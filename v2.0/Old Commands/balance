@@ -1,0 +1,235 @@
+{
+  "name": "Balance",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "DLlGG",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "21",
+      "storage": "1",
+      "varName2": "user.Tag",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "user.Username",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "20",
+      "storage": "1",
+      "varName2": "user.Discriminator",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "CloudCoins",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "user.PlanetCoins",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "CloudBank",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "user.PlanetBank",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "banner",
+      "defaultVal": "\"https://imgur.com/q4lKCuR.png\"",
+      "storage": "1",
+      "varName2": "user.Banner",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"user.PlanetCoins\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"user.PlanetBank\")}",
+      "storage": "1",
+      "varName": "user.PlanetTotal",
+      "name": "Basic Math Operation"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "function abbrNum(number, decPlaces) {\n    var orig = number;\n    var dec = decPlaces;\n    // 2 decimal places => 100, 3 => 1000, etc\n    decPlaces = Math.pow(10, decPlaces);\n\n    // Enumerate number abbreviations\n    var abbrev = [\"k\", \"m\", \"b\", \"t\"];\n\n    // Go through the array backwards, so we do the largest first\n    for (var i = abbrev.length - 1; i >= 0; i--) {\n\n        // Convert array index to \"1000\", \"1000000\", etc\n        var size = Math.pow(10, (i + 1) * 3);\n\n        // If the number is bigger or equal do the abbreviation\n        if (size <= number) {\n            // Here, we multiply by decPlaces, round, and then divide by decPlaces.\n            // This gives us nice rounding to a particular decimal place.\n            var number = Math.round(number * decPlaces / size) / decPlaces;\n\n            // Handle special case where we round up to the next abbreviation\n            if((number == 1000) && (i < abbrev.length - 1)) {\n                number = 1;\n                i++;\n            }\n\n            // console.log(number);\n            // Add the letter for the abbreviation\n            number += abbrev[i];\n\n            // We are done... stop\n            break;\n        }\n    }\n\n    return number;\n}\n\nabbrNum(tempVars(\"user.PlanetCoins\"), 1)",
+      "storage": "1",
+      "varName": "short.PlanetCoins",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "function abbrNum(number, decPlaces) {\n    var orig = number;\n    var dec = decPlaces;\n    // 2 decimal places => 100, 3 => 1000, etc\n    decPlaces = Math.pow(10, decPlaces);\n\n    // Enumerate number abbreviations\n    var abbrev = [\"k\", \"m\", \"b\", \"t\"];\n\n    // Go through the array backwards, so we do the largest first\n    for (var i = abbrev.length - 1; i >= 0; i--) {\n\n        // Convert array index to \"1000\", \"1000000\", etc\n        var size = Math.pow(10, (i + 1) * 3);\n\n        // If the number is bigger or equal do the abbreviation\n        if (size <= number) {\n            // Here, we multiply by decPlaces, round, and then divide by decPlaces.\n            // This gives us nice rounding to a particular decimal place.\n            var number = Math.round(number * decPlaces / size) / decPlaces;\n\n            // Handle special case where we round up to the next abbreviation\n            if((number == 1000) && (i < abbrev.length - 1)) {\n                number = 1;\n                i++;\n            }\n\n            // console.log(number);\n            // Add the letter for the abbreviation\n            number += abbrev[i];\n\n            // We are done... stop\n            break;\n        }\n    }\n\n    return number;\n}\n\nabbrNum(tempVars(\"user.PlanetBank\"), 1)",
+      "storage": "1",
+      "varName": "short.PlanetBank",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "function abbrNum(number, decPlaces) {\n    var orig = number;\n    var dec = decPlaces;\n    // 2 decimal places => 100, 3 => 1000, etc\n    decPlaces = Math.pow(10, decPlaces);\n\n    // Enumerate number abbreviations\n    var abbrev = [\"k\", \"m\", \"b\", \"t\"];\n\n    // Go through the array backwards, so we do the largest first\n    for (var i = abbrev.length - 1; i >= 0; i--) {\n\n        // Convert array index to \"1000\", \"1000000\", etc\n        var size = Math.pow(10, (i + 1) * 3);\n\n        // If the number is bigger or equal do the abbreviation\n        if (size <= number) {\n            // Here, we multiply by decPlaces, round, and then divide by decPlaces.\n            // This gives us nice rounding to a particular decimal place.\n            var number = Math.round(number * decPlaces / size) / decPlaces;\n\n            // Handle special case where we round up to the next abbreviation\n            if((number == 1000) && (i < abbrev.length - 1)) {\n                number = 1;\n                i++;\n            }\n\n            // console.log(number);\n            // Add the letter for the abbreviation\n            number += abbrev[i];\n\n            // We are done... stop\n            break;\n        }\n    }\n\n    return number;\n}\n\nabbrNum(tempVars(\"user.PlanetTotal\"), 1)",
+      "storage": "1",
+      "varName": "short.PlanetTotal",
+      "name": "Run Script"
+    },
+    {
+      "url": "${tempVars(\"user.Banner\")}",
+      "storage": "1",
+      "varName": "banner",
+      "name": "Create Image"
+    },
+    {
+      "url": "resources/balance/balance.png",
+      "storage": "1",
+      "varName": "balance.Card",
+      "name": "Create Image"
+    },
+    {
+      "url": "resources/balance/border.png",
+      "storage": "1",
+      "varName": "border.Card",
+      "name": "Create Image"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "storage": "1",
+      "varName2": "user.PFP",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "user.PFP",
+      "width": "133px",
+      "height": "133px",
+      "name": "Resize Image"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "storage2": "1",
+      "varName2": "banner",
+      "x": "0",
+      "y": "0",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "storage2": "1",
+      "varName2": "user.PFP",
+      "x": "61",
+      "y": "85",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "storage2": "1",
+      "varName2": "border.Card",
+      "x": "0",
+      "y": "0",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "x": "228",
+      "y": "135",
+      "font": "fonts/WhitneyBold-35px.fnt",
+      "width": "",
+      "text": "${tempVars(\"user.Username\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "x": "228",
+      "y": "167",
+      "font": "fonts/WhitneyBold-20px.fnt",
+      "width": "",
+      "text": "#${tempVars(\"user.Discriminator\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "x": "345",
+      "y": "191",
+      "font": "fonts/WhitneyBold-20px.fnt",
+      "width": "",
+      "text": "${tempVars(\"short.PlanetTotal\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "x": "458",
+      "y": "191",
+      "font": "fonts/WhitneyBold-20px.fnt",
+      "width": "",
+      "text": "${tempVars(\"short.PlanetCoins\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "x": "561",
+      "y": "191",
+      "font": "fonts/WhitneyBold-20px.fnt",
+      "width": "",
+      "text": "${tempVars(\"short.PlanetBank\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "> **Viewing Server Balance  • ** **[** ${tempVars(\"user.Tag\")} **]**",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "balance.Card",
+      "channel": "0",
+      "varName2": "",
+      "message": " ",
+      "storage2": "0",
+      "varName3": "",
+      "name": "Send Image"
+    }
+  ],
+  "comType": "4",
+  "description": "Check your Planet Coins balance"
+}
