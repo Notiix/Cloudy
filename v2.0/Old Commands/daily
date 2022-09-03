@@ -1,0 +1,402 @@
+{
+  "name": "Daily",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "fjhVI",
+  "actions": [
+    {
+      "type": "0",
+      "storage": "1",
+      "varName": "year",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "1",
+      "storage": "1",
+      "varName": "month",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "2",
+      "storage": "1",
+      "varName": "day",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "3",
+      "storage": "1",
+      "varName": "hour",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "4",
+      "storage": "1",
+      "varName": "minute",
+      "name": "Store Time Info"
+    },
+    {
+      "type": "5",
+      "storage": "1",
+      "varName": "second",
+      "name": "Store Time Info"
+    },
+    {
+      "sourceDate": "${tempVars(\"month\")} ${tempVars(\"day\")} ${tempVars(\"year\")} ${tempVars(\"hour\")}:${tempVars(\"minute\")}:${tempVars(\"second\")}",
+      "dateLanguage": "",
+      "modeStorage": "0",
+      "info": "12",
+      "buildInput": "",
+      "storage": "1",
+      "varName": "message.Timestamp",
+      "name": "Store Date Info Plus"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "daily.Timestamp",
+      "defaultVal": "\"${tempVars(\"message.Timestamp\")}\"",
+      "storage": "1",
+      "varName2": "user.Timestamp",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "message.Timestamp",
+      "comparison": "7",
+      "value": "tempVars(\"user.Timestamp\")",
+      "branch": {
+        "iftrue": "4",
+        "iffalse": "0",
+        "iftrueVal": "Create Daily"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [
+        {
+          "title": "",
+          "url": "",
+          "color": "2F3136",
+          "timestamp": "false",
+          "imageUrl": "",
+          "thumbUrl": "",
+          "description": "**You can collect your daily Planet Coins <t:${tempVars(\"user.Timestamp\")}:R>**",
+          "fields": [],
+          "author": "",
+          "authorUrl": "",
+          "authorIcon": "",
+          "footerText": "",
+          "footerIconUrl": ""
+        }
+      ],
+      "reply": true,
+      "ephemeral": true,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchorName": "Create Daily",
+      "name": "Action Anchor"
+    },
+    {
+      "user": "1",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "user.Username",
+      "name": "Store User Info"
+    },
+    {
+      "user": "1",
+      "varName": "",
+      "info": "9",
+      "storage": "1",
+      "varName2": "user.Discriminator",
+      "name": "Store User Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "banner",
+      "defaultVal": "\"https://imgur.com/q4lKCuR.png\"",
+      "storage": "1",
+      "varName2": "user.Banner",
+      "name": "Store Member Data"
+    },
+    {
+      "url": "resources/daily/card.png",
+      "storage": "1",
+      "varName": "card",
+      "name": "Create Image"
+    },
+    {
+      "url": "resources/daily/border.png",
+      "storage": "1",
+      "varName": "border",
+      "name": "Create Image"
+    },
+    {
+      "url": "${tempVars(\"user.Banner\")}",
+      "storage": "1",
+      "varName": "banner",
+      "name": "Create Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "storage2": "1",
+      "varName2": "banner",
+      "x": "0",
+      "y": "0",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "storage": "1",
+      "varName2": "user.Avatar",
+      "name": "Create Image from Avatar"
+    },
+    {
+      "storage": "1",
+      "varName": "user.Avatar",
+      "width": "133px",
+      "height": "133px",
+      "name": "Resize Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "storage2": "1",
+      "varName2": "user.Avatar",
+      "x": "61",
+      "y": "85",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "storage2": "1",
+      "varName2": "border",
+      "x": "0",
+      "y": "0",
+      "mask": "0",
+      "name": "Draw Image on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "228",
+      "y": "135",
+      "font": "fonts/WhitneyBold-35px.fnt",
+      "width": "",
+      "text": "${tempVars(\"user.Username\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "228",
+      "y": "168",
+      "font": "fonts/WhitneyBold-20px.fnt",
+      "width": "",
+      "text": "#${tempVars(\"user.Discriminator\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "storage": "1",
+      "varName": "user.Streak",
+      "comparison": "1",
+      "value": "'7'",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "3",
+        "iffalseVal": "4"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "streak",
+      "changeType": "0",
+      "value": "1",
+      "name": "Control Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "559",
+      "y": "184",
+      "font": "fonts/WhitneyBold-25px.fnt",
+      "width": "",
+      "text": "+750",
+      "name": "Draw Text on Image"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "PlanetCoins",
+      "changeType": "1",
+      "value": "750",
+      "name": "Control Member Data"
+    },
+    {
+      "count": "3",
+      "name": "Skip Actions"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "streak",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "559",
+      "y": "184",
+      "font": "fonts/WhitneyBold-25px.fnt",
+      "width": "",
+      "text": "+250",
+      "name": "Draw Text on Image"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "PlanetCoins",
+      "changeType": "1",
+      "value": "250",
+      "name": "Control Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "PlanetCoins",
+      "defaultVal": "\"0\"",
+      "storage": "1",
+      "varName2": "user.PlanetCoins",
+      "name": "Store Member Data"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "PlanetBank",
+      "defaultVal": "\"0\"",
+      "storage": "1",
+      "varName2": "user.PlanetBank",
+      "name": "Store Member Data"
+    },
+    {
+      "FirstNumber": "${tempVars(\"user.PlanetCoins\")}",
+      "info": "0",
+      "SecondNumber": "${tempVars(\"user.PlanetBank\")}",
+      "storage": "1",
+      "varName": "user.PlanetTotal",
+      "name": "Basic Math Operation"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "function abbrNum(number, decPlaces) {\n    var orig = number;\n    var dec = decPlaces;\n    // 2 decimal places => 100, 3 => 1000, etc\n    decPlaces = Math.pow(10, decPlaces);\n\n    // Enumerate number abbreviations\n    var abbrev = [\"k\", \"m\", \"b\", \"t\"];\n\n    // Go through the array backwards, so we do the largest first\n    for (var i = abbrev.length - 1; i >= 0; i--) {\n\n        // Convert array index to \"1000\", \"1000000\", etc\n        var size = Math.pow(10, (i + 1) * 3);\n\n        // If the number is bigger or equal do the abbreviation\n        if (size <= number) {\n            // Here, we multiply by decPlaces, round, and then divide by decPlaces.\n            // This gives us nice rounding to a particular decimal place.\n            var number = Math.round(number * decPlaces / size) / decPlaces;\n\n            // Handle special case where we round up to the next abbreviation\n            if((number == 1000) && (i < abbrev.length - 1)) {\n                number = 1;\n                i++;\n            }\n\n            // console.log(number);\n            // Add the letter for the abbreviation\n            number += abbrev[i];\n\n            // We are done... stop\n            break;\n        }\n    }\n\n    return number;\n}\n\nabbrNum(tempVars(\"user.PlanetTotal\"), 1)",
+      "storage": "1",
+      "varName": "short.Number",
+      "name": "Run Script"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "x": "373",
+      "y": "196",
+      "font": "fonts/WhitneyBold-20px.fnt",
+      "width": "",
+      "text": "${tempVars(\"short.Number\")}",
+      "name": "Draw Text on Image"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "> **Collecting Daily Bonus  • ** **[** ${tempVars(\"user.Username\")}#${tempVars(\"user.Discriminator\")} **]**",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "daily.Message",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "card",
+      "channel": "0",
+      "varName2": "",
+      "message": " ",
+      "storage2": "0",
+      "varName3": "",
+      "name": "Send Image"
+    },
+    {
+      "message": "1",
+      "varName": "daily.Message",
+      "info": "16",
+      "storage": "1",
+      "varName2": "daily.Date",
+      "name": "Store Message Info"
+    },
+    {
+      "sourceDate": "${tempVars(\"daily.Date\")}",
+      "dateLanguage": "",
+      "modeStorage": "0",
+      "info": "12",
+      "buildInput": "",
+      "storage": "1",
+      "varName": "daily.Timestamp",
+      "name": "Store Date Info Plus"
+    },
+    {
+      "FirstNumber": "${tempVars(\"daily.Timestamp\")}",
+      "info": "0",
+      "SecondNumber": "86400",
+      "storage": "1",
+      "varName": "daily.Timestamp",
+      "name": "Basic Math Operation"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "daily.Timestamp",
+      "changeType": "0",
+      "value": "tempVars(\"daily.Timestamp\")",
+      "name": "Control Member Data"
+    }
+  ],
+  "comType": "4",
+  "description": "Collect your daily Planet Coins"
+}
