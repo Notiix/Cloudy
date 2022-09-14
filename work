@@ -1,5 +1,5 @@
 {
-  "instructions": [
+  "responses": [
     "You work as the president and earn ${tempVars("amount")}",
     "You work as a toy manufacturer and sell toys to kids for ${tempVars("amount")",
     "You work at the dump all day. Then you find ${tempVars("amount") from a thrown out wallet.",
